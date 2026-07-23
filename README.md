@@ -5,21 +5,21 @@ A responsive, single-page portfolio built with plain HTML, CSS, and JavaScript
 
 ## File structure
 
+Everything lives in one folder — no subfolders, so it's easy to drag-and-drop
+into any host:
+
 ```
-portfolio/
+portfolio-flat/
 ├── index.html
 ├── style.css
 ├── script.js
 ├── README.md
-└── assets/
-    ├── images/
-    │   ├── rifat-ahmed-hero.jpg / .webp      (hero photo, used in the terminal avatar)
-    │   ├── rifat-ahmed-about.jpg / .webp     (About section portrait)
-    │   ├── rifat-ahmed-avatar.jpg            (spare small crop, not currently used)
-    │   └── cert-oop-java.jpg / .webp         (certificate preview thumbnail)
-    └── docs/
-        ├── Rifat-Ahmed-CV.pdf
-        └── Rifat-Ahmed-OOP-Java-Certificate.pdf
+├── rifat-ahmed-hero.jpg / .webp      (hero photo, used in the terminal avatar)
+├── rifat-ahmed-about.jpg / .webp     (About section portrait)
+├── rifat-ahmed-avatar.jpg            (spare small crop, not currently used)
+├── cert-oop-java.jpg / .webp         (certificate preview thumbnail)
+├── Rifat-Ahmed-CV.pdf
+└── Rifat-Ahmed-OOP-Java-Certificate.pdf
 ```
 
 ## 1. Run it locally
@@ -58,12 +58,12 @@ honeypot field as a first line of defense against basic bots.
 
 ## 3. Swap in your own CV / certificates later
 
-- CV: replace `assets/docs/Rifat-Ahmed-CV.pdf` with a new file of the same
-  name, or change the path in `script.js` (`CV_FILE_PATH`).
+- CV: replace `Rifat-Ahmed-CV.pdf` with a new file of the same name, or
+  change the path in `script.js` (`CV_FILE_PATH`).
 - Certificates: duplicate the `.cert-card.cert-card-photo` block in the
-  Certificates section of `index.html`, add a new preview image to
-  `assets/images/`, and point `data-cert-img` / the View / Download links at
-  the new files.
+  Certificates section of `index.html`, add a new preview image to the
+  folder, and point `data-cert-img` / the View / Download links at the new
+  files.
 
 ## 4. Add real projects
 

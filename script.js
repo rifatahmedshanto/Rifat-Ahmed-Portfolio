@@ -8,7 +8,7 @@
 ------------------------------------------------------------ */
 
 // Path to your CV — the Download CV button(s) are wired to this automatically.
-const CV_FILE_PATH = "assets/docs/Rifat-Ahmed-CV.pdf";
+const CV_FILE_PATH = "Rifat-Ahmed-CV.pdf";
 
 // Contact form delivery — messages are POSTed here so they land in your inbox
 // without a server of your own. Sign up free at https://formspree.io,
