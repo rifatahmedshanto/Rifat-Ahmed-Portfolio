@@ -4,11 +4,19 @@
    ================================================================ */
 
 /* ------------------------------------------------------------
-   CONFIG — edit this one line to point at your own CV file.
-   e.g. "assets/Rifat-Ahmed-CV.pdf". The Download CV button(s)
-   below are wired to this path automatically.
+   CONFIG
 ------------------------------------------------------------ */
-const CV_FILE_PATH = "assets/Rifat-Ahmed-CV.pdf";
+
+// Path to your CV — the Download CV button(s) are wired to this automatically.
+const CV_FILE_PATH = "assets/docs/Rifat-Ahmed-CV.pdf";
+
+// Contact form delivery — messages are POSTed here so they land in your inbox
+// without a server of your own. Sign up free at https://formspree.io,
+// create a form, and paste its endpoint below (looks like
+// "https://formspree.io/f/xxxxxxxx"). Until you do, the form runs in
+// "local" mode: it still validates input, but shows a note instead of
+// sending, so nothing is silently lost.
+const CONTACT_FORM_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -304,15 +312,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   function isValidEmail(value) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value); }
 
-  contactForm.addEventListener("submit", (event) => {
+  contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const nameInput = document.getElementById("name");
     const emailInput = document.getElementById("email");
     const messageInput = document.getElementById("message");
+    const honeypot = document.getElementById("company");
     const nameError = document.getElementById("nameError");
     const emailError = document.getElementById("emailError");
     const messageError = document.getElementById("messageError");
+    const submitBtn = contactForm.querySelector("button[type='submit']");
     let isValid = true;
+
+    // Honeypot tripped -> silently drop (bot), pretend success so it doesn't learn.
+    if (honeypot && honeypot.value.trim() !== "") {
+      formStatus.style.color = "var(--success)";
+      formStatus.textContent = "Thanks! Your message has been sent.";
+      contactForm.reset();
+      return;
+    }
 
     if (nameInput.value.trim().length < 2) { setFieldError(nameInput, nameError, "Please enter your full name."); isValid = false; }
     else setFieldError(nameInput, nameError, "");
@@ -329,11 +347,81 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Front-end only — connect to a backend or a form service (e.g. Formspree) to receive messages.
-    formStatus.style.color = "var(--success)";
-    formStatus.textContent = `Thanks, ${nameInput.value.trim()}! Your message has been noted.`;
-    contactForm.reset();
+    const endpointConfigured = CONTACT_FORM_ENDPOINT && !CONTACT_FORM_ENDPOINT.includes("YOUR_FORM_ID");
+
+    if (!endpointConfigured) {
+      // No backend wired up yet — fall back to opening the visitor's mail client
+      // with the message pre-filled, so nothing is lost.
+      const subject = encodeURIComponent(`Portfolio message from ${nameInput.value.trim()}`);
+      const body = encodeURIComponent(`${messageInput.value.trim()}\n\n— ${nameInput.value.trim()} (${emailInput.value.trim()})`);
+      window.location.href = `mailto:rifatahmedshanto0@gmail.com?subject=${subject}&body=${body}`;
+      formStatus.style.color = "var(--text-muted)";
+      formStatus.textContent = "Opening your email app to send this message. (Set CONTACT_FORM_ENDPOINT in script.js to send automatically instead.)";
+      return;
+    }
+
+    try {
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.style.opacity = "0.7"; }
+      formStatus.style.color = "var(--text-muted)";
+      formStatus.textContent = "Sending your message...";
+
+      const response = await fetch(CONTACT_FORM_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(contactForm)
+      });
+
+      if (response.ok) {
+        formStatus.style.color = "var(--success)";
+        formStatus.textContent = `Thanks, ${nameInput.value.trim()}! Your message has been sent — I'll get back to you soon.`;
+        contactForm.reset();
+      } else {
+        throw new Error("Form service returned an error");
+      }
+    } catch (err) {
+      formStatus.style.color = "var(--danger)";
+      formStatus.textContent = "Something went wrong sending your message. Please email rifatahmedshanto0@gmail.com directly instead.";
+    } finally {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.style.opacity = ""; }
+    }
   });
+
+  /* ---------- Certificate preview lightbox ---------- */
+  const certLightbox = document.getElementById("certLightbox");
+  const certLightboxImg = document.getElementById("certLightboxImg");
+  const certLightboxTitle = document.getElementById("certLightboxTitle");
+  let lastCertFocusedEl = null;
+
+  function openCertLightbox(imgSrc, title) {
+    lastCertFocusedEl = document.activeElement;
+    certLightboxImg.src = imgSrc;
+    certLightboxImg.alt = title;
+    certLightboxTitle.textContent = title;
+    certLightbox.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeCertLightbox() {
+    certLightbox.hidden = true;
+    certLightboxImg.src = "";
+    document.body.style.overflow = "";
+    if (lastCertFocusedEl) lastCertFocusedEl.focus();
+  }
+
+  document.querySelectorAll("[data-cert-preview]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      openCertLightbox(btn.dataset.certImg, btn.dataset.certTitle);
+    });
+  });
+
+  if (certLightbox) {
+    certLightbox.querySelectorAll("[data-cert-close]").forEach((el) => {
+      el.addEventListener("click", closeCertLightbox);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !certLightbox.hidden) closeCertLightbox();
+    });
+  }
 
   /* ---------- Footer year ---------- */
   document.getElementById("year").textContent = new Date().getFullYear();

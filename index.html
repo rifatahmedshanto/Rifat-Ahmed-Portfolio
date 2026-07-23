@@ -4,15 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Rifat Ahmed | Software Engineering Student</title>
-  <meta name="description" content="Portfolio of Rifat Ahmed, a Software Engineering student at Daffodil International University." />
-  <meta name="keywords" content="Rifat Ahmed, Software Engineer, Daffodil International University, Web Developer, Portfolio" />
+  <title>Rifat Ahmed | Software Engineering Student &amp; Web Developer</title>
+  <meta name="description" content="Portfolio of Rifat Ahmed, a Software Engineering student at Daffodil International University specializing in HTML, CSS, JavaScript, Java, C++, SQL, and responsive web development." />
+  <meta name="keywords" content="Rifat Ahmed, Software Engineer, Daffodil International University, Web Developer, Portfolio, Java Developer, Frontend Developer, Bangladesh" />
   <meta name="author" content="Rifat Ahmed" />
   <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://rifatahmedshanto.dev/" />
 
-  <meta property="og:title" content="Rifat Ahmed | Software Engineering Student" />
-  <meta property="og:description" content="Portfolio of Rifat Ahmed — Software Engineering student at Daffodil International University." />
+  <meta property="og:title" content="Rifat Ahmed | Software Engineering Student & Web Developer" />
+  <meta property="og:description" content="Portfolio of Rifat Ahmed — Software Engineering student at Daffodil International University, building responsive websites and full-stack web applications." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/rifat-ahmed-about.jpg" />
+  <meta property="og:url" content="https://rifatahmedshanto.dev/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Rifat Ahmed | Software Engineering Student & Web Developer" />
+  <meta name="twitter:description" content="Portfolio of Rifat Ahmed — Software Engineering student at Daffodil International University." />
+  <meta name="twitter:image" content="assets/images/rifat-ahmed-about.jpg" />
   <meta name="theme-color" content="#0a0f1c" />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23d4a24e%22>&#62;_</text></svg>" />
@@ -24,6 +31,36 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Preload critical assets for faster first paint -->
+  <link rel="preload" as="image" href="assets/images/rifat-ahmed-hero.webp" type="image/webp" />
+
+  <!-- Structured data for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Rifat Ahmed",
+    "jobTitle": "Software Engineering Student",
+    "url": "https://rifatahmedshanto.dev/",
+    "image": "assets/images/rifat-ahmed-about.jpg",
+    "email": "mailto:rifatahmedshanto0@gmail.com",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Daffodil International University"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dhaka",
+      "addressCountry": "Bangladesh"
+    },
+    "sameAs": [
+      "https://github.com/rifatahmedshanto",
+      "https://www.linkedin.com/in/rifatahmedshanto/",
+      "https://www.facebook.com/rifat.ahmed.12673"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -113,13 +150,36 @@
 
           <div class="hero-socials reveal-item" style="--i:5" aria-label="Social media links">
             <a href="https://github.com/rifatahmedshanto" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/rifatahmedshanto/https://www.linkedin.com/in/rifatahmedshanto/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/rifatahmedshanto/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin"></i></a>
             <a href="https://www.facebook.com/rifat.ahmed.12673" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile"><i class="fa-brands fa-facebook"></i></a>
             <a href="mailto:rifatahmedshanto0@gmail.com" aria-label="Send an email"><i class="fa-solid fa-envelope"></i></a>
           </div>
         </div>
 
         <div class="hero-visual" data-reveal>
+          <!-- Animated coding illustration, floats behind/beside the terminal -->
+          <div class="coding-illustration" aria-hidden="true">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="100" r="92" fill="var(--accent-soft)"></circle>
+              <!-- laptop base -->
+              <rect x="52" y="118" width="96" height="8" rx="3" fill="var(--accent-2)"></rect>
+              <!-- laptop screen -->
+              <rect x="62" y="66" width="76" height="52" rx="4" fill="var(--bg-elevated)" stroke="var(--border-strong)" stroke-width="2"></rect>
+              <rect x="68" y="72" width="64" height="40" rx="2" fill="#0a0f1c"></rect>
+              <!-- code lines typing in -->
+              <rect class="code-line" x="73" y="78" width="26" height="3.5" rx="1.5" fill="var(--accent)"></rect>
+              <rect class="code-line" x="73" y="85" width="40" height="3.5" rx="1.5" fill="var(--accent-2)" style="animation-delay:.3s"></rect>
+              <rect class="code-line" x="73" y="92" width="18" height="3.5" rx="1.5" fill="var(--accent)" style="animation-delay:.6s"></rect>
+              <rect class="code-line" x="73" y="99" width="34" height="3.5" rx="1.5" fill="var(--accent-2)" style="animation-delay:.9s"></rect>
+              <!-- person -->
+              <circle cx="100" cy="42" r="12" fill="var(--accent-bright)"></circle>
+              <path d="M78 78 C78 58 122 58 122 78 L122 66 C122 66 100 54 78 66 Z" fill="var(--accent)"></path>
+              <!-- typing hands -->
+              <rect class="hand hand-left" x="82" y="108" width="8" height="14" rx="3" fill="var(--accent-bright)"></rect>
+              <rect class="hand hand-right" x="110" y="108" width="8" height="14" rx="3" fill="var(--accent-bright)"></rect>
+            </svg>
+          </div>
+
           <div class="terminal-window" role="img" aria-label="Terminal window showing developer profile">
             <div class="terminal-titlebar">
               <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
@@ -134,8 +194,12 @@
               <p class="terminal-output terminal-success"><i class="fa-solid fa-circle-check"></i> Open to internships &amp; collaborations</p>
               <p class="terminal-cursor-line"><span class="prompt">rifat@diu</span>:<span class="path">~</span>$ <span class="blink-cursor">▌</span></p>
 
-              <!-- Replace with an <img> of yourself -->
-              <div class="avatar-placeholder" aria-hidden="true"><span>RA</span></div>
+              <div class="avatar-photo">
+                <picture>
+                  <source srcset="assets/images/rifat-ahmed-hero.webp" type="image/webp" />
+                  <img src="assets/images/rifat-ahmed-hero.jpg" alt="Rifat Ahmed" width="64" height="64" loading="eager" decoding="async" />
+                </picture>
+              </div>
             </div>
           </div>
         </div>
@@ -157,30 +221,38 @@
         <div class="about-grid">
           <div class="about-image" data-reveal>
             <div class="about-frame">
-              <!-- Replace with your own photo -->
-              <div class="image-placeholder">
-                <i class="fa-solid fa-user-astronaut" aria-hidden="true"></i>
-              </div>
+              <picture>
+                <source srcset="assets/images/rifat-ahmed-about.webp" type="image/webp" />
+                <img src="assets/images/rifat-ahmed-about.jpg" alt="Portrait of Rifat Ahmed" width="800" height="1000" loading="lazy" decoding="async" />
+              </picture>
             </div>
           </div>
 
           <div class="about-content" data-reveal>
             <p class="about-text">
-              My name is Rifat Ahmed.I'm a Software Engineering student at <strong>Daffodil International University</strong>,
-              interested in building web applications that are reliable under the hood and
-              enjoyable to use.
+              I'm Rifat Ahmed, a Software Engineering student at <strong>Daffodil International University</strong>,
+              where I've been building a solid foundation in programming, databases, and web
+              development since 2024.
             </p>
             <p class="about-text">
-              Add a paragraph here about your background, interests, and what drives you as
-              a developer — replace this placeholder with your own story.
+              My work centers on the front end — HTML, CSS, and JavaScript — paired with a
+              strong grip on Java, C++, and SQL for the logic and data layer behind an
+              application. I care about writing code that's easy to read a year later, and
+              about interfaces that feel responsive and intentional on any screen size.
+            </p>
+            <p class="about-text">
+              Outside of coursework, I'm usually sharpening these skills through personal
+              projects and certifications, most recently completing a course on
+              object-oriented programming in Java. I'm currently open to internships and
+              collaborative projects where I can keep learning by building.
             </p>
 
             <ul class="config-list">
               <li><span class="config-key">name</span><span class="config-value">"Rifat Ahmed"</span></li>
               <li><span class="config-key">role</span><span class="config-value">"Software Engineering Student"</span></li>
               <li><span class="config-key">university</span><span class="config-value">"Daffodil International University"</span></li>
-              <li><span class="config-key">location</span><span class="config-value">"Your City, Country"</span></li>
-              <li><span class="config-key">focus</span><span class="config-value">["Web Development", "UI/UX Design"]</span></li>
+              <li><span class="config-key">location</span><span class="config-value">"Dhaka, Bangladesh"</span></li>
+              <li><span class="config-key">focus</span><span class="config-value">["Web Development", "Java &amp; OOP", "Database Management"]</span></li>
               <li><span class="config-key">status</span><span class="config-value text-success">"available_for_work"</span></li>
             </ul>
           </div>
@@ -303,101 +375,33 @@
 
         <div class="projects-grid">
 
-          <article class="project-card" data-reveal>
-            <div class="project-thumb"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
-            <div class="project-body">
-              <h3 class="project-title">Project Title One</h3>
-              <p class="project-desc">
-                Briefly describe what this project does, the problem it solves, and the
-                technologies you used to build it.
-              </p>
-              <div class="project-tags"><span class="tag">Tag</span><span class="tag">Tag</span><span class="tag">Tag</span></div>
-              <div class="project-links">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i> Code</a>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
-              </div>
-            </div>
-          </article>
+          <!--
+            Add your projects here — duplicate this block per project and fill
+            in the title, description, tags, and links:
 
-          <article class="project-card" data-reveal>
-            <div class="project-thumb"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div>
-            <div class="project-body">
-              <h3 class="project-title">Project Title Two</h3>
-              <p class="project-desc">
-                Briefly describe what this project does, the problem it solves, and the
-                technologies you used to build it.
-              </p>
-              <div class="project-tags"><span class="tag">Tag</span><span class="tag">Tag</span><span class="tag">Tag</span></div>
-              <div class="project-links">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i> Code</a>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+            <article class="project-card" data-reveal>
+              <div class="project-thumb"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
+              <div class="project-body">
+                <h3 class="project-title">Project Name</h3>
+                <p class="project-desc">What it does, the problem it solves, and how you built it.</p>
+                <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
+                <div class="project-links">
+                  <a href="https://github.com/rifatahmedshanto/repo" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i> Code</a>
+                  <a href="https://your-live-demo-url" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+          -->
 
-          <article class="project-card" data-reveal>
-            <div class="project-thumb"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></div>
-            <div class="project-body">
-              <h3 class="project-title">Project Title Three</h3>
-              <p class="project-desc">
-                Briefly describe what this project does, the problem it solves, and the
-                technologies you used to build it.
-              </p>
-              <div class="project-tags"><span class="tag">Tag</span><span class="tag">Tag</span><span class="tag">Tag</span></div>
-              <div class="project-links">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i> Code</a>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card" data-reveal>
-            <div class="project-thumb"><i class="fa-solid fa-window-restore" aria-hidden="true"></i></div>
-            <div class="project-body">
-              <h3 class="project-title">Project Title Four</h3>
-              <p class="project-desc">
-                Briefly describe what this project does, the problem it solves, and the
-                technologies you used to build it.
-              </p>
-              <div class="project-tags"><span class="tag">Tag</span><span class="tag">Tag</span><span class="tag">Tag</span></div>
-              <div class="project-links">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i> Code</a>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card" data-reveal>
-            <div class="project-thumb"><i class="fa-solid fa-cubes" aria-hidden="true"></i></div>
-            <div class="project-body">
-              <h3 class="project-title">Project Title Five</h3>
-              <p class="project-desc">
-                Briefly describe what this project does, the problem it solves, and the
-                technologies you used to build it.
-              </p>
-              <div class="project-tags"><span class="tag">Tag</span><span class="tag">Tag</span><span class="tag">Tag</span></div>
-              <div class="project-links">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i> Code</a>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card" data-reveal>
-            <div class="project-thumb"><i class="fa-solid fa-terminal" aria-hidden="true"></i></div>
-            <div class="project-body">
-              <h3 class="project-title">Project Title Six</h3>
-              <p class="project-desc">
-                Briefly describe what this project does, the problem it solves, and the
-                technologies you used to build it.
-              </p>
-              <div class="project-tags"><span class="tag">Tag</span><span class="tag">Tag</span><span class="tag">Tag</span></div>
-              <div class="project-links">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i> Code</a>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
-              </div>
-            </div>
-          </article>
+          <div class="project-empty" data-reveal>
+            <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+            <h3>Projects coming soon</h3>
+            <p>
+              I'm actively building out my project portfolio. Check back soon, or see
+              my day-to-day work on
+              <a href="https://github.com/rifatahmedshanto" target="_blank" rel="noopener noreferrer">GitHub</a>.
+            </p>
+          </div>
 
         </div>
       </div>
@@ -409,34 +413,49 @@
         <p class="section-eyebrow" data-reveal>// certificates</p>
         <h2 id="certificates-heading" class="section-title" data-reveal>Certifications</h2>
 
-        <div class="certs-grid">
-          <div class="cert-card" data-reveal>
-            <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
-            <h3 class="cert-title">Certificate Title</h3>
-            <p class="cert-issuer">Issuing Organization</p>
-            <p class="cert-date">Year</p>
+        <div class="certs-grid certs-grid-single">
+          <div class="cert-card cert-card-photo" data-reveal>
+            <button class="cert-thumb" type="button" data-cert-preview
+              data-cert-img="assets/images/cert-oop-java.jpg"
+              data-cert-title="Object-Oriented Programming in Java"
+              aria-label="Preview certificate: Object-Oriented Programming in Java">
+              <picture>
+                <source srcset="assets/images/cert-oop-java.webp" type="image/webp" />
+                <img src="assets/images/cert-oop-java.jpg" alt="Certificate of completion for Object-Oriented Programming in Java, issued to Rifat Ahmed" width="900" height="636" loading="lazy" decoding="async" />
+              </picture>
+              <span class="cert-thumb-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> Preview</span>
+            </button>
+            <div class="cert-card-body">
+              <h3 class="cert-title">Object-Oriented Programming in Java</h3>
+              <p class="cert-issuer">Certificate code: 10035649</p>
+              <p class="cert-date">Issued 31 March 2026</p>
+              <div class="cert-actions">
+                <a class="btn btn-sm btn-outline" href="assets/docs/Rifat-Ahmed-OOP-Java-Certificate.pdf" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-solid fa-eye"></i> View
+                </a>
+                <a class="btn btn-sm btn-primary" href="assets/docs/Rifat-Ahmed-OOP-Java-Certificate.pdf" download="Rifat-Ahmed-OOP-Java-Certificate.pdf">
+                  <i class="fa-solid fa-download"></i> Download
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="cert-card" data-reveal>
-            <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
-            <h3 class="cert-title">Certificate Title</h3>
-            <p class="cert-issuer">Issuing Organization</p>
-            <p class="cert-date">Year</p>
-          </div>
-          <div class="cert-card" data-reveal>
-            <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
-            <h3 class="cert-title">Certificate Title</h3>
-            <p class="cert-issuer">Issuing Organization</p>
-            <p class="cert-date">Year</p>
-          </div>
-          <div class="cert-card" data-reveal>
-            <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
-            <h3 class="cert-title">Certificate Title</h3>
-            <p class="cert-issuer">Issuing Organization</p>
-            <p class="cert-date">Year</p>
-          </div>
+
+          <!-- Add more <div class="cert-card cert-card-photo"> blocks here as you earn new certificates -->
         </div>
       </div>
     </section>
+
+    <!-- Certificate preview lightbox -->
+    <div class="cert-lightbox" id="certLightbox" hidden>
+      <div class="cert-lightbox-backdrop" data-cert-close></div>
+      <div class="cert-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Certificate preview">
+        <button class="cert-lightbox-close" type="button" data-cert-close aria-label="Close preview">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="certLightboxImg" src="" alt="" />
+        <p id="certLightboxTitle" class="cert-lightbox-title"></p>
+      </div>
+    </div>
 
     <!-- Contact -->
     <section id="contact" class="section section-alt" aria-labelledby="contact-heading">
@@ -463,11 +482,16 @@
               <a href="https://github.com/rifatahmedshanto" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fa-brands fa-github"></i></a>
               <a href="https://www.linkedin.com/in/rifatahmedshanto/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin"></i></a>
               <a href="https://www.facebook.com/rifat.ahmed.12673" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile"><i class="fa-brands fa-facebook"></i></a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X profile"><i class="fa-brands fa-x-twitter"></i></a>
             </div>
           </div>
 
           <form class="contact-form" id="contactForm" data-reveal novalidate>
+            <!-- Honeypot field: hidden from real visitors, catches basic spam bots -->
+            <div class="form-honeypot" aria-hidden="true">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+            </div>
+
             <div class="form-group">
               <label for="name">Name</label>
               <input type="text" id="name" name="name" placeholder="Your full name" required />
@@ -503,7 +527,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <a href="#hero" class="logo">
-        <span class="logo-bracket">&lt;</span>Rifat<span class="logo-accent">.dev</span><span class="logo-bracket">/&gt;</span>
+        <span class="logo-bracket">&lt;</span>Rifat Ahmed<span class="logo-accent"> Portfolio</span><span class="logo-bracket">&gt;</span>
       </a>
 
       <ul class="footer-links">
