@@ -14,12 +14,12 @@
   <meta property="og:title" content="Rifat Ahmed | Software Engineering Student & Web Developer" />
   <meta property="og:description" content="Portfolio of Rifat Ahmed — Software Engineering student at Daffodil International University, building responsive websites and full-stack web applications." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="rifat-ahmed-about.jpg" />
+  <meta property="og:image" content="assets/images/rifat-ahmed-about.jpg" />
   <meta property="og:url" content="https://rifatahmedshanto.dev/" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Rifat Ahmed | Software Engineering Student & Web Developer" />
   <meta name="twitter:description" content="Portfolio of Rifat Ahmed — Software Engineering student at Daffodil International University." />
-  <meta name="twitter:image" content="rifat-ahmed-about.jpg" />
+  <meta name="twitter:image" content="assets/images/rifat-ahmed-about.jpg" />
   <meta name="theme-color" content="#0a0f1c" />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23d4a24e%22>&#62;_</text></svg>" />
@@ -30,10 +30,11 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 
   <!-- Preload critical assets for faster first paint -->
-  <link rel="preload" as="image" href="rifat-ahmed-hero.webp" type="image/webp" />
+  <link rel="preload" as="image" href="assets/images/rifat-ahmed-hero.webp" type="image/webp" />
+  <link rel="preload" as="style" href="css/style.css" />
 
   <!-- Structured data for search engines -->
   <script type="application/ld+json">
@@ -43,7 +44,7 @@
     "name": "Rifat Ahmed",
     "jobTitle": "Software Engineering Student",
     "url": "https://rifatahmedshanto.dev/",
-    "image": "rifat-ahmed-about.jpg",
+    "image": "assets/images/rifat-ahmed-about.jpg",
     "email": "mailto:rifatahmedshanto0@gmail.com",
     "alumniOf": {
       "@type": "CollegeOrUniversity",
@@ -127,19 +128,18 @@
       <div class="hero-inner">
 
         <div class="hero-text">
-          <p class="eyebrow reveal-item" style="--i:0"></p>
-          <h1 class="hero-title reveal-item" style="--i:1">
+          <h1 class="hero-title reveal-item" style="--i:0">
             Hi, I'm <span class="text-accent">Rifat Ahmed</span>
           </h1>
-          <p class="hero-subtitle reveal-item" style="--i:2">
+          <p class="hero-subtitle reveal-item" style="--i:1">
             I build <span id="typedText" class="typed-text"></span><span class="typed-cursor" aria-hidden="true">|</span>
           </p>
-          <p class="hero-desc reveal-item" style="--i:3">
+          <p class="hero-desc reveal-item" style="--i:2">
             Software Engineering student at <strong>Daffodil International University</strong>,
             focused on writing clean code and crafting thoughtful, functional interfaces.
           </p>
 
-          <div class="hero-actions reveal-item" style="--i:4">
+          <div class="hero-actions reveal-item" style="--i:3">
             <a href="#" download class="btn btn-primary btn-download-cv">
               <i class="fa-solid fa-download" aria-hidden="true"></i> Download CV
             </a>
@@ -148,7 +148,7 @@
             </a>
           </div>
 
-          <div class="hero-socials reveal-item" style="--i:5" aria-label="Social media links">
+          <div class="hero-socials reveal-item" style="--i:4" aria-label="Social media links">
             <a href="https://github.com/rifatahmedshanto" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/rifatahmedshanto/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin"></i></a>
             <a href="https://www.facebook.com/rifat.ahmed.12673" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile"><i class="fa-brands fa-facebook"></i></a>
@@ -196,8 +196,8 @@
 
               <div class="avatar-photo">
                 <picture>
-                  <source srcset="rifat-ahmed-hero.webp" type="image/webp" />
-                  <img src="rifat-ahmed-hero.jpg" alt="Rifat Ahmed" width="64" height="64" loading="eager" decoding="async" />
+                  <source srcset="assets/images/rifat-ahmed-hero.webp" type="image/webp" />
+                  <img src="assets/images/rifat-ahmed-hero.jpg" alt="Rifat Ahmed" width="64" height="64" loading="eager" decoding="async" />
                 </picture>
               </div>
             </div>
@@ -215,46 +215,35 @@
     <!-- About -->
     <section id="about" class="section" aria-labelledby="about-heading">
       <div class="section-inner">
-        <p class="section-eyebrow" data-reveal>// about</p>
-        <h2 id="about-heading" class="section-title" data-reveal>Getting to know me</h2>
+        <h2 id="about-heading" class="section-title section-title-solo" data-reveal>About</h2>
 
         <div class="about-grid">
           <div class="about-image" data-reveal>
             <div class="about-frame">
               <picture>
-                <source srcset="rifat-ahmed-about.webp" type="image/webp" />
-                <img src="rifat-ahmed-about.jpg" alt="Portrait of Rifat Ahmed" width="800" height="1000" loading="lazy" decoding="async" />
+                <source srcset="assets/images/rifat-ahmed-about.webp" type="image/webp" />
+                <img src="assets/images/rifat-ahmed-about.jpg" alt="Portrait of Rifat Ahmed" width="800" height="1000" loading="lazy" decoding="async" />
               </picture>
             </div>
           </div>
 
           <div class="about-content" data-reveal>
             <p class="about-text">
-              I'm Rifat Ahmed, a Software Engineering student at <strong>Daffodil International University</strong>,
-              where I've been building a solid foundation in programming, databases, and web
-              development since 2024.
-            </p>
-            <p class="about-text">
-              My work centers on the front end — HTML, CSS, and JavaScript — paired with a
-              strong grip on Java, C++, and SQL for the logic and data layer behind an
-              application. I care about writing code that's easy to read a year later, and
-              about interfaces that feel responsive and intentional on any screen size.
-            </p>
-            <p class="about-text">
-              Outside of coursework, I'm usually sharpening these skills through personal
-              projects and certifications, most recently completing a course on
-              object-oriented programming in Java. I'm currently open to internships and
-              collaborative projects where I can keep learning by building.
+              I'm a Software Engineering student at <strong>Daffodil International University</strong>,
+              building a solid foundation in programming, databases, and web
+              development since 2024 — with a focus on clean code and interfaces
+              that feel intentional on any screen size.
             </p>
 
-            <ul class="config-list">
-              <li><span class="config-key">name</span><span class="config-value">"Rifat Ahmed"</span></li>
-              <li><span class="config-key">role</span><span class="config-value">"Software Engineering Student"</span></li>
-              <li><span class="config-key">university</span><span class="config-value">"Daffodil International University"</span></li>
-              <li><span class="config-key">location</span><span class="config-value">"Dhaka, Bangladesh"</span></li>
-              <li><span class="config-key">focus</span><span class="config-value">["Web Development", "Java &amp; OOP", "Database Management"]</span></li>
-              <li><span class="config-key">status</span><span class="config-value text-success">"available_for_work"</span></li>
-            </ul>
+            <!-- Lightweight coding-themed animation: a typed-out code snippet, plays once on scroll into view -->
+            <div class="code-widget" data-code-widget>
+              <div class="code-widget-bar">
+                <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+                <span class="code-widget-tab">profile.js</span>
+              </div>
+              <pre class="code-widget-body"><code id="codeTyped" aria-hidden="true"></code><span class="code-widget-cursor" aria-hidden="true">▌</span></pre>
+              <span class="sr-only">Profile summary: Rifat Ahmed, Software Engineering student, Daffodil International University, based in Dhaka, Bangladesh, focused on web development, Java and object-oriented programming, and database management, available for internships.</span>
+            </div>
           </div>
         </div>
       </div>
@@ -263,13 +252,28 @@
     <!-- Skills -->
     <section id="skills" class="section section-alt" aria-labelledby="skills-heading">
       <div class="section-inner">
-        <p class="section-eyebrow" data-reveal>// skills</p>
-        <h2 id="skills-heading" class="section-title" data-reveal>What I work with</h2>
+        <h2 id="skills-heading" class="section-title section-title-solo" data-reveal>Skills</h2>
 
         <div class="skills-grid">
 
           <div class="skill-category" data-reveal>
-            <h3 class="skill-category-title"><i class="fa-solid fa-code"></i> Frontend</h3>
+            <h3 class="skill-category-title"><i class="fa-solid fa-code"></i> Programming Languages</h3>
+            <div class="skill-bar" data-level="80">
+              <div class="skill-bar-head"><span>Java</span><span class="skill-percent">80%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+            </div>
+            <div class="skill-bar" data-level="75">
+              <div class="skill-bar-head"><span>C / C++</span><span class="skill-percent">75%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+            </div>
+            <div class="skill-bar" data-level="80">
+              <div class="skill-bar-head"><span>JavaScript</span><span class="skill-percent">80%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-category" data-reveal>
+            <h3 class="skill-category-title"><i class="fa-solid fa-globe"></i> Web Development</h3>
             <div class="skill-bar" data-level="90">
               <div class="skill-bar-head"><span>HTML5</span><span class="skill-percent">90%</span></div>
               <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
@@ -279,51 +283,23 @@
               <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
             </div>
             <div class="skill-bar" data-level="80">
-              <div class="skill-bar-head"><span>JavaScript</span><span class="skill-percent">80%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
-            </div>
-            <div class="skill-bar" data-level="70">
-              <div class="skill-bar-head"><span>React</span><span class="skill-percent">70%</span></div>
+              <div class="skill-bar-head"><span>Responsive Design</span><span class="skill-percent">80%</span></div>
               <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
             </div>
           </div>
 
           <div class="skill-category" data-reveal>
-            <h3 class="skill-category-title"><i class="fa-solid fa-server"></i> Backend</h3>
+            <h3 class="skill-category-title"><i class="fa-solid fa-database"></i> Data &amp; Tools</h3>
             <div class="skill-bar" data-level="75">
-              <div class="skill-bar-head"><span>Node.js</span><span class="skill-percent">75%</span></div>
+              <div class="skill-bar-head"><span>SQL &amp; Database Mgmt</span><span class="skill-percent">75%</span></div>
               <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
             </div>
-            <div class="skill-bar" data-level="70">
-              <div class="skill-bar-head"><span>Express.js</span><span class="skill-percent">70%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
-            </div>
-            <div class="skill-bar" data-level="65">
-              <div class="skill-bar-head"><span>MongoDB</span><span class="skill-percent">65%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
-            </div>
-            <div class="skill-bar" data-level="60">
-              <div class="skill-bar-head"><span>MySQL</span><span class="skill-percent">60%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
-            </div>
-          </div>
-
-          <div class="skill-category" data-reveal>
-            <h3 class="skill-category-title"><i class="fa-solid fa-toolbox"></i> Tools &amp; Languages</h3>
             <div class="skill-bar" data-level="85">
               <div class="skill-bar-head"><span>Git &amp; GitHub</span><span class="skill-percent">85%</span></div>
               <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
             </div>
-            <div class="skill-bar" data-level="75">
-              <div class="skill-bar-head"><span>C / C++</span><span class="skill-percent">75%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
-            </div>
-            <div class="skill-bar" data-level="70">
-              <div class="skill-bar-head"><span>Java</span><span class="skill-percent">70%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
-            </div>
-            <div class="skill-bar" data-level="65">
-              <div class="skill-bar-head"><span>Figma</span><span class="skill-percent">65%</span></div>
+            <div class="skill-bar" data-level="60">
+              <div class="skill-bar-head"><span>Video Editing</span><span class="skill-percent">60%</span></div>
               <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
             </div>
           </div>
@@ -335,14 +311,13 @@
     <!-- Education -->
     <section id="education" class="section" aria-labelledby="education-heading">
       <div class="section-inner">
-        <p class="section-eyebrow" data-reveal>// education</p>
-        <h2 id="education-heading" class="section-title" data-reveal>Academic background</h2>
+        <h2 id="education-heading" class="section-title section-title-solo" data-reveal>Education</h2>
 
         <ol class="timeline">
           <li class="timeline-item" data-reveal>
-            <div class="timeline-dot"></div>
+            <div class="timeline-dot"><i class="fa-solid fa-graduation-cap"></i></div>
             <div class="timeline-content">
-              <p class="timeline-date">2022 — Present</p>
+              <p class="timeline-date">2024 — Present</p>
               <h3 class="timeline-title">B.Sc. in Software Engineering</h3>
               <p class="timeline-org">Daffodil International University</p>
               <p class="timeline-desc">
@@ -353,14 +328,20 @@
           </li>
 
           <li class="timeline-item" data-reveal>
-            <div class="timeline-dot"></div>
+            <div class="timeline-dot"><i class="fa-solid fa-book"></i></div>
             <div class="timeline-content">
-              <p class="timeline-date">Add year range</p>
-              <h3 class="timeline-title">Add previous education or certification</h3>
-              <p class="timeline-org">Institution name</p>
-              <p class="timeline-desc">
-                Replace this placeholder with details of any earlier education you'd like to include.
-              </p>
+              <p class="timeline-date">2023</p>
+              <h3 class="timeline-title">Higher Secondary Certificate (HSC)</h3>
+              <p class="timeline-org">Science</p>
+            </div>
+          </li>
+
+          <li class="timeline-item" data-reveal>
+            <div class="timeline-dot"><i class="fa-solid fa-book-open"></i></div>
+            <div class="timeline-content">
+              <p class="timeline-date">2021</p>
+              <h3 class="timeline-title">Secondary School Certificate (SSC)</h3>
+              <p class="timeline-org">Science</p>
             </div>
           </li>
         </ol>
@@ -370,8 +351,7 @@
     <!-- Projects -->
     <section id="projects" class="section section-alt" aria-labelledby="projects-heading">
       <div class="section-inner">
-        <p class="section-eyebrow" data-reveal>// projects</p>
-        <h2 id="projects-heading" class="section-title" data-reveal>Things I've built</h2>
+        <h2 id="projects-heading" class="section-title section-title-solo" data-reveal>Projects</h2>
 
         <div class="projects-grid">
 
@@ -410,30 +390,29 @@
     <!-- Certificates -->
     <section id="certificates" class="section" aria-labelledby="certificates-heading">
       <div class="section-inner">
-        <p class="section-eyebrow" data-reveal>// certificates</p>
-        <h2 id="certificates-heading" class="section-title" data-reveal>Certifications</h2>
+        <h2 id="certificates-heading" class="section-title section-title-solo" data-reveal>Certificates</h2>
 
         <div class="certs-grid certs-grid-single">
           <div class="cert-card cert-card-photo" data-reveal>
             <button class="cert-thumb" type="button" data-cert-preview
-              data-cert-img="cert-oop-java.jpg"
+              data-cert-img="assets/images/cert-oop-java.jpg"
               data-cert-title="Object-Oriented Programming in Java"
               aria-label="Preview certificate: Object-Oriented Programming in Java">
               <picture>
-                <source srcset="cert-oop-java.webp" type="image/webp" />
-                <img src="cert-oop-java.jpg" alt="Certificate of completion for Object-Oriented Programming in Java, issued to Rifat Ahmed" width="900" height="636" loading="lazy" decoding="async" />
+                <source srcset="assets/images/cert-oop-java.webp" type="image/webp" />
+                <img src="assets/images/cert-oop-java.jpg" alt="Certificate of completion for Object-Oriented Programming in Java, issued to Rifat Ahmed" width="900" height="636" loading="lazy" decoding="async" />
               </picture>
-              <span class="cert-thumb-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> Preview</span>
+              <span class="cert-thumb-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> Preview full certificate</span>
             </button>
             <div class="cert-card-body">
               <h3 class="cert-title">Object-Oriented Programming in Java</h3>
               <p class="cert-issuer">Certificate code: 10035649</p>
               <p class="cert-date">Issued 31 March 2026</p>
               <div class="cert-actions">
-                <a class="btn btn-sm btn-outline" href="Rifat-Ahmed-OOP-Java-Certificate.pdf" target="_blank" rel="noopener noreferrer">
+                <a class="btn btn-sm btn-outline" href="assets/docs/Rifat-Ahmed-OOP-Java-Certificate.pdf" target="_blank" rel="noopener noreferrer">
                   <i class="fa-solid fa-eye"></i> View
                 </a>
-                <a class="btn btn-sm btn-primary" href="Rifat-Ahmed-OOP-Java-Certificate.pdf" download="Rifat-Ahmed-OOP-Java-Certificate.pdf">
+                <a class="btn btn-sm btn-primary" href="assets/docs/Rifat-Ahmed-OOP-Java-Certificate.pdf" download="Rifat-Ahmed-OOP-Java-Certificate.pdf">
                   <i class="fa-solid fa-download"></i> Download
                 </a>
               </div>
@@ -460,8 +439,7 @@
     <!-- Contact -->
     <section id="contact" class="section section-alt" aria-labelledby="contact-heading">
       <div class="section-inner">
-        <p class="section-eyebrow" data-reveal>// contact</p>
-        <h2 id="contact-heading" class="section-title" data-reveal>Let's build something together</h2>
+        <h2 id="contact-heading" class="section-title section-title-solo" data-reveal>Let's build something together</h2>
 
         <div class="contact-grid">
 
@@ -553,6 +531,6 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <script src="script.js"></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>

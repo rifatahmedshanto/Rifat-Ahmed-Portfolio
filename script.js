@@ -8,7 +8,7 @@
 ------------------------------------------------------------ */
 
 // Path to your CV — the Download CV button(s) are wired to this automatically.
-const CV_FILE_PATH = "Rifat-Ahmed-CV.pdf";
+const CV_FILE_PATH = "assets/docs/Rifat-Ahmed-CV.pdf";
 
 // Contact form delivery — messages are POSTed here so they land in your inbox
 // without a server of your own. Sign up free at https://formspree.io,
@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- Card spotlight hover (skipped for reduced motion) ---------- */
   if (!prefersReducedMotion) {
     let rafId = null;
-    document.querySelectorAll(".project-card, .cert-card").forEach((card) => {
+    document.querySelectorAll(".project-card, .cert-card, .skill-category").forEach((card) => {
       card.addEventListener("pointermove", (e) => {
         if (rafId) cancelAnimationFrame(rafId);
         const rect = card.getBoundingClientRect();
@@ -188,6 +188,75 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
     });
+  }
+
+  /* ---------- About: animated code widget ---------- */
+  /* Types out a small profile snippet once the widget scrolls into view,
+     then swaps in a syntax-highlighted version. Pure vanilla JS, no libraries. */
+  const codeWidget = document.querySelector("[data-code-widget]");
+  const codeTypedEl = document.getElementById("codeTyped");
+
+  if (codeWidget && codeTypedEl) {
+    const codePlainText =
+`const rifat = {
+  name: "Rifat Ahmed",
+  role: "Software Engineering Student",
+  university: "Daffodil International University",
+  location: "Dhaka, Bangladesh",
+  focus: ["Web Development", "Java & OOP", "Database Management"],
+  status: "available_for_work"
+};`;
+
+    const codeHighlightedHTML =
+`<span class="code-kw">const</span> rifat = {
+  <span class="code-key">name</span>: <span class="code-str">"Rifat Ahmed"</span>,
+  <span class="code-key">role</span>: <span class="code-str">"Software Engineering Student"</span>,
+  <span class="code-key">university</span>: <span class="code-str">"Daffodil International University"</span>,
+  <span class="code-key">location</span>: <span class="code-str">"Dhaka, Bangladesh"</span>,
+  <span class="code-key">focus</span>: [<span class="code-str">"Web Development"</span>, <span class="code-str">"Java &amp; OOP"</span>, <span class="code-str">"Database Management"</span>],
+  <span class="code-key">status</span>: <span class="code-str">"available_for_work"</span>
+};`;
+
+    let hasTyped = false;
+
+    function typeCodeWidget() {
+      if (hasTyped) return;
+      hasTyped = true;
+
+      if (prefersReducedMotion) {
+        codeTypedEl.innerHTML = codeHighlightedHTML;
+        return;
+      }
+
+      let i = 0;
+      const totalChars = codePlainText.length;
+      // Keep total typing time reasonable regardless of snippet length.
+      const perCharDelay = Math.max(8, Math.min(18, 2600 / totalChars));
+
+      (function typeChar() {
+        i++;
+        codeTypedEl.textContent = codePlainText.slice(0, i);
+        if (i < totalChars) {
+          setTimeout(typeChar, perCharDelay);
+        } else {
+          // Swap in the colorized version once typing completes.
+          codeTypedEl.innerHTML = codeHighlightedHTML;
+        }
+      })();
+    }
+
+    const codeWidgetObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            typeCodeWidget();
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+    codeWidgetObserver.observe(codeWidget);
   }
 
   /* ---------- Scroll to top ---------- */
@@ -206,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchIndex = [
     { id: "hero", label: "Home", icon: "fa-house", keywords: "home top intro" },
     { id: "about", label: "About", icon: "fa-user", keywords: "about bio background" },
-    { id: "skills", label: "Skills", icon: "fa-code", keywords: "skills frontend backend tools" },
+    { id: "skills", label: "Skills", icon: "fa-code", keywords: "skills programming languages web development data tools java javascript" },
     { id: "education", label: "Education", icon: "fa-graduation-cap", keywords: "education university daffodil" },
     { id: "projects", label: "Projects", icon: "fa-diagram-project", keywords: "projects work portfolio" },
     { id: "certificates", label: "Certificates", icon: "fa-award", keywords: "certificates certifications" },
