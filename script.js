@@ -8,7 +8,7 @@
 ------------------------------------------------------------ */
 
 // Path to your CV — the Download CV button(s) are wired to this automatically.
-const CV_FILE_PATH = "Rifat-Ahmed-CV.pdf";
+const CV_FILE_PATH = "assets/docs/Rifat-Ahmed-CV.pdf";
 
 // Contact form delivery — messages are POSTed here so they land in your inbox
 // without a server of your own. Sign up free at https://formspree.io,
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   sections.forEach((section) => navObserver.observe(section));
 
-  /* ---------- Typing animation (hero) ---------- */
+  /* ---------- Typing animation ---------- */
   const typedTextEl = document.getElementById("typedText");
   const phrases = [
     "responsive websites.",
@@ -135,93 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
     typedTextEl.textContent = phrases[0];
   } else {
     typeLoop();
-  }
-
-  /* ---------- About section: coding-themed typing animation ----------
-     Lightweight, dependency-free replacement for the old static bio
-     portrait — types out a small "profile.js" snippet character by
-     character, then loops with a soft fade/retype. Pure DOM + CSS,
-     no images, no external libraries. */
-  const codeTarget = document.getElementById("codeTypeTarget");
-  if (codeTarget) {
-    const codeLines = [
-      { text: "const profile = {", cls: "" },
-      { text: '  name: "Rifat Ahmed",', key: "name", value: '"Rifat Ahmed"' },
-      { text: '  role: "Software Engineering Student",', key: "role", value: '"Software Engineering Student"' },
-      { text: '  university: "Daffodil International University",', key: "university", value: '"Daffodil International University"' },
-      { text: "  stack: [\"HTML\", \"CSS\", \"JS\", \"Java\", \"SQL\"],", key: "stack", value: '["HTML", "CSS", "JS", "Java", "SQL"]' },
-      { text: "  openToWork: true", key: "openToWork", value: "true", bool: true },
-      { text: "};", cls: "" }
-    ];
-
-    function renderLineHTML(line, idx) {
-      if (idx === 0 || idx === codeLines.length - 1) {
-        return `<span class="cp">${line.text}</span>`;
-      }
-      const indent = "  ";
-      const boolClass = line.bool ? "cb" : "cs";
-      return `${indent}<span class="ck">${line.key}</span><span class="cp">: </span><span class="${boolClass}">${line.value}</span><span class="cp">,</span>`;
-    }
-
-    function buildFullHTML() {
-      return codeLines.map((l, i) => renderLineHTML(l, i)).join("\n");
-    }
-
-    if (prefersReducedMotion) {
-      codeTarget.innerHTML = buildFullHTML();
-    } else {
-      let cancelled = false;
-      codeTarget.setAttribute("aria-hidden", "false");
-
-      async function typeOnce() {
-        codeTarget.innerHTML = "";
-        for (let i = 0; i < codeLines.length; i++) {
-          const line = codeLines[i];
-          const full = renderLineHTML(line, i);
-          // Reveal each line's markup, but animate a plain-text version first
-          // for a lightweight per-character type effect, then swap in the
-          // syntax-highlighted markup once the line is complete.
-          const plain = line.text;
-          let shown = "";
-          const lineEl = document.createElement("div");
-          codeTarget.appendChild(lineEl);
-          for (let c = 0; c < plain.length; c++) {
-            if (cancelled) return;
-            shown += plain[c];
-            lineEl.textContent = shown;
-            await new Promise((r) => setTimeout(r, 14));
-          }
-          lineEl.innerHTML = full;
-          await new Promise((r) => setTimeout(r, 90));
-        }
-        // Blinking caret at the end, pause, then fade out and retype
-        const caret = document.createElement("span");
-        caret.className = "code-caret";
-        caret.innerHTML = "&nbsp;";
-        codeTarget.appendChild(caret);
-        await new Promise((r) => setTimeout(r, 2200));
-        if (cancelled) return;
-        codeTarget.style.transition = "opacity .4s ease";
-        codeTarget.style.opacity = "0";
-        await new Promise((r) => setTimeout(r, 420));
-        if (cancelled) return;
-        codeTarget.style.opacity = "1";
-        typeOnce();
-      }
-
-      const codeObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              typeOnce();
-              observer.disconnect();
-            }
-          });
-        },
-        { threshold: 0.3 }
-      );
-      codeObserver.observe(codeTarget);
-    }
   }
 
   /* ---------- Scroll reveal (with stagger index for grids) ---------- */
@@ -263,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- Card spotlight hover (skipped for reduced motion) ---------- */
   if (!prefersReducedMotion) {
     let rafId = null;
-    document.querySelectorAll(".project-card, .cert-card").forEach((card) => {
+    document.querySelectorAll(".project-card, .cert-card, .skill-category").forEach((card) => {
       card.addEventListener("pointermove", (e) => {
         if (rafId) cancelAnimationFrame(rafId);
         const rect = card.getBoundingClientRect();
@@ -275,6 +188,75 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
     });
+  }
+
+  /* ---------- About: animated code widget ---------- */
+  /* Types out a small profile snippet once the widget scrolls into view,
+     then swaps in a syntax-highlighted version. Pure vanilla JS, no libraries. */
+  const codeWidget = document.querySelector("[data-code-widget]");
+  const codeTypedEl = document.getElementById("codeTyped");
+
+  if (codeWidget && codeTypedEl) {
+    const codePlainText =
+`const rifat = {
+  name: "Rifat Ahmed",
+  role: "Software Engineering Student",
+  university: "Daffodil International University",
+  location: "Dhaka, Bangladesh",
+  focus: ["Web Development", "Java & OOP", "Database Management"],
+  status: "available_for_work"
+};`;
+
+    const codeHighlightedHTML =
+`<span class="code-kw">const</span> rifat = {
+  <span class="code-key">name</span>: <span class="code-str">"Rifat Ahmed"</span>,
+  <span class="code-key">role</span>: <span class="code-str">"Software Engineering Student"</span>,
+  <span class="code-key">university</span>: <span class="code-str">"Daffodil International University"</span>,
+  <span class="code-key">location</span>: <span class="code-str">"Dhaka, Bangladesh"</span>,
+  <span class="code-key">focus</span>: [<span class="code-str">"Web Development"</span>, <span class="code-str">"Java &amp; OOP"</span>, <span class="code-str">"Database Management"</span>],
+  <span class="code-key">status</span>: <span class="code-str">"available_for_work"</span>
+};`;
+
+    let hasTyped = false;
+
+    function typeCodeWidget() {
+      if (hasTyped) return;
+      hasTyped = true;
+
+      if (prefersReducedMotion) {
+        codeTypedEl.innerHTML = codeHighlightedHTML;
+        return;
+      }
+
+      let i = 0;
+      const totalChars = codePlainText.length;
+      // Keep total typing time reasonable regardless of snippet length.
+      const perCharDelay = Math.max(8, Math.min(18, 2600 / totalChars));
+
+      (function typeChar() {
+        i++;
+        codeTypedEl.textContent = codePlainText.slice(0, i);
+        if (i < totalChars) {
+          setTimeout(typeChar, perCharDelay);
+        } else {
+          // Swap in the colorized version once typing completes.
+          codeTypedEl.innerHTML = codeHighlightedHTML;
+        }
+      })();
+    }
+
+    const codeWidgetObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            typeCodeWidget();
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+    codeWidgetObserver.observe(codeWidget);
   }
 
   /* ---------- Scroll to top ---------- */
@@ -289,29 +271,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchOverlay = document.getElementById("searchOverlay");
   const searchInput = document.getElementById("searchInput");
   const searchResultsEl = document.getElementById("searchResults");
-  let lastFocusedEl = null;
-  let activeResultIndex = -1;
 
-  const searchableSections = [
-    { id: "about", label: "About", icon: "fa-user" },
-    { id: "skills", label: "Skills", icon: "fa-code" },
-    { id: "education", label: "Education", icon: "fa-graduation-cap" },
-    { id: "projects", label: "Projects", icon: "fa-folder-open" },
-    { id: "certificates", label: "Certificates", icon: "fa-certificate" },
-    { id: "contact", label: "Contact", icon: "fa-envelope" }
+  const searchIndex = [
+    { id: "hero", label: "Home", icon: "fa-house", keywords: "home top intro" },
+    { id: "about", label: "About", icon: "fa-user", keywords: "about bio background" },
+    { id: "skills", label: "Skills", icon: "fa-code", keywords: "skills programming languages web development data tools java javascript" },
+    { id: "education", label: "Education", icon: "fa-graduation-cap", keywords: "education university daffodil" },
+    { id: "projects", label: "Projects", icon: "fa-diagram-project", keywords: "projects work portfolio" },
+    { id: "certificates", label: "Certificates", icon: "fa-award", keywords: "certificates certifications" },
+    { id: "contact", label: "Contact", icon: "fa-envelope", keywords: "contact email message form" }
   ];
+
+  let activeResultIndex = -1;
+  let lastFocusedEl = null;
 
   function renderResults(query) {
     const q = query.trim().toLowerCase();
     const matches = q
-      ? searchableSections.filter((item) => item.label.toLowerCase().includes(q))
-      : searchableSections;
+      ? searchIndex.filter((item) => (item.label + " " + item.keywords).toLowerCase().includes(q))
+      : searchIndex;
 
     searchResultsEl.innerHTML = "";
     activeResultIndex = matches.length ? 0 : -1;
 
     if (!matches.length) {
-      searchResultsEl.innerHTML = `<li class="search-empty">No matching section.</li>`;
+      searchResultsEl.innerHTML = `<li class="search-empty">No matching section found.</li>`;
       return;
     }
 
